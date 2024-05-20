@@ -8,7 +8,8 @@ use yii\helpers\Url;
 
 $menuItems = [
     ['label' => 'Employee', 'url' => ['/employee/index'], 'icon' => 'users'],
-    ['label' => 'Respondents', 'url' => [''], 'icon' => 'list'],
+    ['label' => 'Facility', 'url' => ['/facility/index'], 'icon' => 'list'],
+    ['label' => 'Location', 'url' => ['/location/index'], 'icon' => 'list'],
 
 ];
 
