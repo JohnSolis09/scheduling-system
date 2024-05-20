@@ -4,7 +4,7 @@ use yii\db\Connection;
 
 return [
     'class' => Connection::class,
-    'dsn' => 'mysql:host=localhost;dbname=tabulate-survey',
+    'dsn' => 'mysql:host=localhost;dbname=scheduling-db',
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8',

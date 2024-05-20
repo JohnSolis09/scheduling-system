@@ -11,7 +11,7 @@ return [
 
 
 
-    'localDb' => 'tabulate-survey',
+    'localDb' => 'scheduling-db',
     'localDsn' => 'mysql:host=localhost;',
     'localUser' => 'root',
     'localPassword' => '',
