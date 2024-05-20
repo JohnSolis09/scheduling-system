@@ -102,7 +102,11 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [],
+            'rules' => [
+                'gii' => 'gii',
+                'gii/<controller:\w+>' => 'gii/<controller>',
+                'gii/<controller:\w+>/<action:\w+>' => 'gii/<controller>/<action>',
+            ],
         ],
         'authManager' => [
             'class' => DbManager::class, // yii\rbac\PhpManager or 'yii\rbac\DbManager'
@@ -129,6 +133,10 @@ $config = [
         ]
     ],
     'modules' => [
+        'gii' => [
+            'class' => 'yii\gii\Module',
+            'allowedIPs' => ['127.0.0.1', '::1'], // Adjust allowed IPs as needed
+        ],
         'debug' => [
             'class' => \yii\debug\Module::class,
             'panels' => [
