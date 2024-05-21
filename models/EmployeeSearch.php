@@ -2,18 +2,17 @@
 
 namespace app\models;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Employee;
 
 /**
- * EmployeeSearch represents the model behind the search form about `app\models\Employee`.
+ * EmployeeSearch represents the model behind the search form of `app\models\Employee`.
  */
 class EmployeeSearch extends Employee
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -24,7 +23,7 @@ class EmployeeSearch extends Employee
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function scenarios()
     {
@@ -43,6 +42,8 @@ class EmployeeSearch extends Employee
     {
         $query = Employee::find();
 
+        // add conditions that should always apply here
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -55,6 +56,7 @@ class EmployeeSearch extends Employee
             return $dataProvider;
         }
 
+        // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
             'facility_id' => $this->facility_id,
