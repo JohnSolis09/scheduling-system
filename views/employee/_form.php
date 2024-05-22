@@ -20,15 +20,15 @@ use kartik\date\DatePicker;
     <?= $form->field($model, 'no_of_pax')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'Date_Time')->widget(
-            DatePicker::class,[
-                'options' => ['placeholder' => 'Enter date..'],
-                'pluginOptions' => [
-                    'autoclose' => true,
-                    'format' => 'yyyy/mm/dd',
-                ]
-            ])->label('Date')?>
+        DatePicker::class, [
+            'options' => ['placeholder' => 'Enter date..'],
+            'pluginOptions' => [
+                'autoclose' => true,
+                'format' => 'yyyy/mm/dd',
+            ]
+        ])->label('Date') ?>
 
-    <?= $form->field($model, 'upadated_at')->textInput() ?>
+    <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

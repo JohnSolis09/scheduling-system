@@ -14,11 +14,9 @@ use yii\widgets\Pjax;
 $this->title = 'Employee Dashboard';
 $this->params['breadcrumbs'][] = $this->title;
 
-
 ?>
 <div class="employee-index">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -40,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
     <?php Pjax::end(); ?>
-    
+
     <p style="text-align: center;">
         <?= Html::a('Create Employee', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
