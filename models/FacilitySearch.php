@@ -18,7 +18,7 @@ class FacilitySearch extends Facility
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
+            [['id', ], 'integer'],
             [['facility_name'], 'safe'],
         ];
     }
@@ -57,7 +57,7 @@ class FacilitySearch extends Facility
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'status' => $this->status,
+           
         ]);
 
         $query->andFilterWhere(['like', 'facility_name', $this->facility_name]);

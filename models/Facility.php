@@ -27,8 +27,8 @@ class Facility extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['facility_name', 'status'], 'required'],
-            [['status', 'location_id'], 'integer'],
+            [['facility_name',], 'required'],
+            [['location_id'], 'integer'],
             [['facility_name'], 'string', 'max' => 255],
         ];
     }
@@ -41,7 +41,11 @@ class Facility extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'facility_name' => 'Facility Name',
-            'status' => 'Status',
+            'location_id' => 'Location',
         ];
+    }
+
+    public function getLocations(){
+        return $this->hasOne(Location::className(), ['id'=> 'location_id']);
     }
 }

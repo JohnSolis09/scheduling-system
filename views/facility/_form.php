@@ -1,4 +1,7 @@
 <?php
+use app\models\Location;
+use kartik\select2\Select2;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -10,6 +13,22 @@ use yii\widgets\ActiveForm;
 <div class="facility-form">
 
 	<?php $form = ActiveForm::begin(); ?>
+
+	<?= $form->field($model, 'location_id')->widget(Select2::class, [
+                'data' => ArrayHelper::map(Location::getLocation(), 'id', 'location_name'),
+                // 'theme' => Select2::THEME_DEFAULT,
+                'showToggleAll' => true,
+                'options' => [
+                    'multiple' => false,
+                    'placeholder' => 'Select location...',
+                ],
+                'pluginOptions' => [
+                    'dropdownAutoWidth' => true,
+                    'width' => '100%',
+                    'height' => '100%',
+                    'scrollAfterSelect' => false
+                ]
+            ]) ?>
 
 	<?= $form->field($model, 'facility_name')->textInput(['maxlength' => true]) ?>
 

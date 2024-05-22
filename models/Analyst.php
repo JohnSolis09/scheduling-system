@@ -37,7 +37,7 @@ class Analyst extends \yii\db\ActiveRecord
         return [
             [['user_id', 'request_id', 'facility_id', 'location_id', 'archive', 'sched_status', ], 'required'],
             [['user_id', 'request_id', 'facility_id', 'location_id', 'archive', 'sched_status', 'status'], 'integer'],
-            [['approved_by', 'approve_at', 'status'], 'safe'],
+            [['approved_by', 'approve_at', 'status', 'duration', 'date_start', 'date_end'], 'safe'],
             [['no_of_pax'], 'string', 'max' => 200],
         ];
     }
@@ -54,6 +54,9 @@ class Analyst extends \yii\db\ActiveRecord
             'facility_id' => 'Facility ID',
             'location_id' => 'Location ID',
             'no_of_pax' => 'No Of Pax',
+            'duration' => 'Duration',
+            'date_start' => 'Date Start',
+            'date_end' => 'Date End',
             'archive' => 'Archive',
             'sched_status' => 'Sched Status',
             'status' => 'Status',

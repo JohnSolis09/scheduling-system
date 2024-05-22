@@ -1,5 +1,8 @@
 <?php
 
+use app\models\Facility;
+use app\models\Location;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
@@ -14,32 +17,26 @@ use kartik\select2\Select2;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'facility_id')->widget(Select2::class, [
-        'data' => \yii\helpers\ArrayHelper::map(
-            \app\models\facility::find()->all(),
-            'facility_name',
-            'facility_name'
-        ),
-        'options' => ['placeholder' => 'Select Facility', 'multiple' => false],
-        'pluginOptions' => [
-            'allowClear' => true,
-            'tags' => true,
-            // 'tokenSeparators' => [',', ' '],
-        ],
-    ])->label('Facility') ?>
     <?= $form->field($model, 'location_id')->widget(Select2::class, [
-        'data' => \yii\helpers\ArrayHelper::map(
-            \app\models\location::find()->all(),
-            'location_name',
-            'location_name'
-        ),
-        'options' => ['placeholder' => 'Select Location', 'multiple' => false],
-        'pluginOptions' => [
-            'allowClear' => true,
-            'tags' => true,
-            // 'tokenSeparators' => [',', ' '],
-        ],
-    ])->label('Location') ?>
+                'data' => ArrayHelper::map(Location::getLocation(), 'id', 'location_name'),
+                // 'theme' => Select2::THEME_DEFAULT,
+                'showToggleAll' => true,
+                'options' => [
+                    'multiple' => false,
+                    'placeholder' => 'Select location...',
+                ],
+                'pluginOptions' => [
+                    'dropdownAutoWidth' => true,
+                    'width' => '100%',
+                    'height' => '100%',
+                    'scrollAfterSelect' => false
+                ]
+            ]) ?>
+
+    
+        
+    
+
     <?= $form->field($model, 'no_of_pax')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'created_at')->widget(
@@ -51,7 +48,6 @@ use kartik\select2\Select2;
             ]
         ])->label('Date') ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

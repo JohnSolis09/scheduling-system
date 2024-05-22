@@ -10,10 +10,12 @@ return [
         'class' => 'kartik\grid\SerialColumn',
         'width' => '30px',
     ],
-        // [
-        // 'class'=>'\kartik\grid\DataColumn',
-        // 'attribute'=>'id',
-    // ],
+    [
+        'attribute' => 'location',
+        'value' => function ($model) {
+           return $model->locations->location_name;
+        }
+    ],
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'facility_name',

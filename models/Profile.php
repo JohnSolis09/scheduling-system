@@ -32,7 +32,7 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             [['user_id', 'facility_id', 'location_id'], 'required'],
-            [['user_id', 'facility_id', 'location_id'], 'integer'],
+            [['user_id', 'facility_id', 'location_id', 'approve_id', 'archive'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['no_of_pax'], 'string', 'max' => 200],
         ];
@@ -49,6 +49,8 @@ class Profile extends \yii\db\ActiveRecord
             'facility_id' => 'Facility ID',
             'location_id' => 'Location ID',
             'no_of_pax' => 'No Of Pax',
+            'approve_id' => 'Approve',
+            'archive' => 'Archive',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

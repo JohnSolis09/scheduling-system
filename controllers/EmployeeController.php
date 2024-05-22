@@ -13,6 +13,21 @@ class EmployeeController extends Controller
 {
     // Other actions...
 
+    public function behaviors()
+    {
+        return array_merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::className(),
+                    'actions' => [
+                        'delete' => ['POST'],
+                    ],
+                ],
+            ]
+        );
+    }
+
     public function actionIndex()
     {
         $searchModel = new EmployeeSearch();
@@ -23,6 +38,14 @@ class EmployeeController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
 
     public function actionCreate()
     {

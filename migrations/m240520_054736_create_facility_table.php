@@ -15,7 +15,6 @@ class m240520_054736_create_facility_table extends Migration
         $this->createTable('{{%facility}}', [
             'id' => $this->primaryKey(),
             'facility_name'=> $this->string()->notNull(),
-            'status'=> $this->integer(11)->notNull(),
 
         ]);
     }

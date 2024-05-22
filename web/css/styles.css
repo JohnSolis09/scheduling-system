@@ -1,0 +1,9 @@
+.approved {
+    background-color: lightgreen !important; /* Change the color as desired */
+}
+
+
+.archived {
+    background-color: #f2dede !important; /* Set your desired background color for archived rows */
+    color: #a94442; /* Set your desired text color for archived rows */
+}

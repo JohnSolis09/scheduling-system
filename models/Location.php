@@ -45,4 +45,7 @@ class Location extends \yii\db\ActiveRecord
            
         ];
     }
+    public static function getLocation() {
+        return self::find()->orderBy(['location_name'=> SORT_DESC])->all();
+    }
 }

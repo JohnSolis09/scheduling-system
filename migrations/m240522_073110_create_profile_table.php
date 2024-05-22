@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%profile}}`.
  */
-class m240520_060658_create_profile_table extends Migration
+class m240522_073110_create_profile_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -17,15 +17,15 @@ class m240520_060658_create_profile_table extends Migration
             'user_id'=> $this->integer()->notNull(),
             'facility_id'=> $this->integer()->notNull(),
             'location_id'=> $this->integer()->notNull(),
+            'approve_id'=> $this->integer()->notNull(),
+            'archive'=> $this->integer()->notNull(),
             'no_of_pax'=> $this->string(200),
+            'duration'=> $this->string(200),
+            'date_start'=> $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
+            'date_end'=> $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
             'created_at'=> $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
             'updated_at'=> $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP')->append('ON UPDATE CURRENT_TIMESTAMP')
         ]);
-        // $this->createIndex('idx-profile-facility_id', '{{%facility}}', 'facility_id');
-        // $this->addForeignKey('fk-profile-facility_id', '{{%facility}}', 'facility_id', '{{%facility}}', 'id', 'SET NULL');
-
-        // $this->createIndex('idx-profile-location_id', '{{%location}}', 'location_id');
-        // $this->addForeignKey('fk-profile-location_id', '{{%location}}', 'location_id', '{{%location}}', 'id', 'SET NULL');
     }
 
     /**
@@ -33,12 +33,6 @@ class m240520_060658_create_profile_table extends Migration
      */
     public function safeDown()
     {
-        // $this->dropForeignKey('fk-profile-facility_id', '{{%profile}}');
-        // $this->dropIndex('idx-profile-facility_id', '{{%profile}}');
-
-        // $this->dropForeignKey('fk-profile-location_id', '{{%profile}}');
-        // $this->dropIndex('idx-profile-location_id', '{{%profile}}');
-
         $this->dropTable('{{%profile}}');
     }
 }
