@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'facility_id',
             'location_id',
             'no_of_pax',
-            'Date_Time',
+            'created at',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Employee $model, $key, $index, $column) {

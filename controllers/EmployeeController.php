@@ -30,7 +30,7 @@ class EmployeeController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
-                $model->Date_Time = date('Y-m-d h:m:s');
+                $model->date_ime = date('Y-m-d h:m:s');
                 $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -59,18 +59,6 @@ class EmployeeController extends Controller
         }
 
         return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('form', [
             'model' => $model,
         ]);
     }

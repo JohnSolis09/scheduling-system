@@ -31,7 +31,7 @@ use kartik\select2\Select2;
     ])->label('Location') ?>
     <?= $form->field($model, 'no_of_pax')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'Date_Time')->widget(
+    <?= $form->field($model, 'created_at')->widget(
         DatePicker::class, [
             'options' => ['placeholder' => 'Enter date..'],
             'pluginOptions' => [
