@@ -12,7 +12,7 @@ use Yii;
  * @property int $location_id
  * @property string|null $no_of_pax
  * @property string $created_at
- * @property string $upadated_at
+ * @property string $updated_at
  */
 class Employee extends \yii\db\ActiveRecord
 {
@@ -32,7 +32,7 @@ class Employee extends \yii\db\ActiveRecord
         return [
             [['facility_id', 'location_id'], 'required'],
             [['facility_id', 'location_id'], 'integer'],
-            [['created_at', 'upadated_at'], 'safe'],
+            [['created_at', 'updated_at'], 'safe'],
             [['no_of_pax'], 'string', 'max' => 200],
         ];
     }
@@ -47,8 +47,8 @@ class Employee extends \yii\db\ActiveRecord
             'facility_id' => 'Facility ID',
             'location_id' => 'Location ID',
             'no_of_pax' => 'No Of Pax',
-            'created_at' => 'created_at',
-            'upadated_at' => 'Upadated At',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
         ];
     }
 }

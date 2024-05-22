@@ -18,7 +18,7 @@ class m240520_060658_create_profile_table extends Migration
             'location_id'=> $this->integer()->notNull(),
             'no_of_pax'=> $this->string(200),
             'created_at'=> $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
-            'upadated_at'=> $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP')->append('ON UPDATE CURRENT_TIMESTAMP')
+            'updated_at'=> $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP')->append('ON UPDATE CURRENT_TIMESTAMP')
         ]);
         // $this->createIndex('idx-profile-facility_id', '{{%facility}}', 'facility_id');
         // $this->addForeignKey('fk-profile-facility_id', '{{%facility}}', 'facility_id', '{{%facility}}', 'id', 'SET NULL');
