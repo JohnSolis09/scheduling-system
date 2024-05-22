@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'facility_id',
             'location_id',
             'no_of_pax',
-            'created_at',
+            'date_time',
             'upadated_at',
         ],
     ]) ?>

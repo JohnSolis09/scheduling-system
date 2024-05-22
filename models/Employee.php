@@ -32,7 +32,7 @@ class Employee extends \yii\db\ActiveRecord
         return [
             [['facility_id', 'location_id'], 'required'],
             [['facility_id', 'location_id'], 'integer'],
-            [['created_at', 'upadated_at'], 'safe'],
+            [['date_time', 'upadated_at'], 'safe'],
             [['no_of_pax'], 'string', 'max' => 200],
         ];
     }
@@ -47,7 +47,7 @@ class Employee extends \yii\db\ActiveRecord
             'facility_id' => 'Facility ID',
             'location_id' => 'Location ID',
             'no_of_pax' => 'No Of Pax',
-            'created_at' => 'Created At',
+            'date_time' => 'Created At',
             'upadated_at' => 'Upadated At',
         ];
     }

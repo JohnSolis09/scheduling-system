@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'no_of_pax') ?>
 
-    <?= $form->field($model, 'created_at') ?>
+    <?= $form->field($model, 'date_time') ?>
 
     <?php // echo $form->field($model, 'upadated_at') ?>
 
