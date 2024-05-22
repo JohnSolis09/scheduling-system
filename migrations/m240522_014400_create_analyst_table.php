@@ -3,23 +3,27 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%profile}}`.
+ * Handles the creation of table `{{%analyst}}`.
  */
-class m240520_060658_create_profile_table extends Migration
+class m240522_014400_create_analyst_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('{{%profile}}', [
+        $this->createTable('{{%analyst}}', [
             'id' => $this->primaryKey(),
             'user_id'=> $this->integer()->notNull(),
+            'request_id'=> $this->integer()->notNull(),
             'facility_id'=> $this->integer()->notNull(),
             'location_id'=> $this->integer()->notNull(),
             'no_of_pax'=> $this->string(200),
-            'created_at'=> $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
-            'updated_at'=> $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP')->append('ON UPDATE CURRENT_TIMESTAMP')
+            'archive'=> $this->integer()->notNull(),
+            'sched_status'=> $this->integer()->notNull(),
+            'status'=> $this->integer()->notNull(),
+            'approved_by'=> $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
+            'approve_at'=> $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP')->append('ON UPDATE CURRENT_TIMESTAMP')
         ]);
         // $this->createIndex('idx-profile-facility_id', '{{%facility}}', 'facility_id');
         // $this->addForeignKey('fk-profile-facility_id', '{{%facility}}', 'facility_id', '{{%facility}}', 'id', 'SET NULL');
@@ -39,6 +43,6 @@ class m240520_060658_create_profile_table extends Migration
         // $this->dropForeignKey('fk-profile-location_id', '{{%profile}}');
         // $this->dropIndex('idx-profile-location_id', '{{%profile}}');
 
-        $this->dropTable('{{%profile}}');
+        $this->dropTable('{{%analyst}}');
     }
 }

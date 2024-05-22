@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var app\models\EmployeeSearch $model */
+/** @var app\models\AnalystSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="employee-search">
+<div class="analyst-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,15 +17,25 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
+    <?= $form->field($model, 'user_id') ?>
+
+    <?= $form->field($model, 'request_id') ?>
+
     <?= $form->field($model, 'facility_id') ?>
 
     <?= $form->field($model, 'location_id') ?>
 
-    <?= $form->field($model, 'no_of_pax') ?>
+    <?php // echo $form->field($model, 'no_of_pax') ?>
 
-    <?= $form->field($model, 'created_at') ?>
+    <?php // echo $form->field($model, 'archive') ?>
 
-    <?php // echo $form->field($model, 'updated_at') ?>
+    <?php // echo $form->field($model, 'sched_status') ?>
+
+    <?php // echo $form->field($model, 'status') ?>
+
+    <?php // echo $form->field($model, 'approved_by') ?>
+
+    <?php // echo $form->field($model, 'approve_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

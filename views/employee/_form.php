@@ -14,8 +14,19 @@ use kartik\select2\Select2;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'facility_id')->textInput() ?>
-
+    <?= $form->field($model, 'facility_id')->widget(Select2::class, [
+        'data' => \yii\helpers\ArrayHelper::map(
+            \app\models\facility::find()->all(),
+            'facility_name',
+            'facility_name'
+        ),
+        'options' => ['placeholder' => 'Select Facility', 'multiple' => false],
+        'pluginOptions' => [
+            'allowClear' => true,
+            'tags' => true,
+            // 'tokenSeparators' => [',', ' '],
+        ],
+    ])->label('Facility') ?>
     <?= $form->field($model, 'location_id')->widget(Select2::class, [
         'data' => \yii\helpers\ArrayHelper::map(
             \app\models\location::find()->all(),

@@ -12,7 +12,7 @@ use yii\widgets\DetailView;
         'attributes' => [
             'id',
             'location_name',
-            'status',
+          
         ],
     ]) ?>
 

@@ -7,9 +7,10 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 $menuItems = [
-    ['label' => 'Employee', 'url' => ['/employee/index'], 'icon' => 'users'],
-    ['label' => 'Facility', 'url' => ['/facility/index'], 'icon' => 'list'],
+    ['label' => 'Request', 'url' => ['/employee/index'], 'icon' => 'users'],
     ['label' => 'Location', 'url' => ['/location/index'], 'icon' => 'list'],
+    ['label' => 'Facility', 'url' => ['/facility/index'], 'icon' => 'list'],
+
 
 ];
 

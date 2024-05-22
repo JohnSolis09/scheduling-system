@@ -13,6 +13,8 @@ use Yii;
  */
 class Location extends \yii\db\ActiveRecord
 {
+    const STATUS_AVAILABLE = 1;
+    const STATUS_UNAVAILABLE = 0;
     /**
      * {@inheritdoc}
      */
@@ -27,8 +29,7 @@ class Location extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['location_name', 'status'], 'required'],
-            [['status'], 'integer'],
+            [['location_name',], 'required'],
             [['location_name'], 'string', 'max' => 250],
         ];
     }
@@ -41,7 +42,7 @@ class Location extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'location_name' => 'Location Name',
-            'status' => 'Status',
+           
         ];
     }
 }

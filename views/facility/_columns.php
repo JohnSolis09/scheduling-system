@@ -19,8 +19,14 @@ return [
         'attribute'=>'facility_name',
     ],
     [
-        'class'=>'\kartik\grid\DataColumn',
-        'attribute'=>'status',
+        'attribute' => 'status',
+        'value' => function ($model) {
+            if ($model->status == 1) {
+                return 'Available';
+            } else {
+                return 'Unavailable';
+            }
+        }
     ],
     [
         'class' => 'kartik\grid\ActionColumn',

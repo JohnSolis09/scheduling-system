@@ -28,7 +28,7 @@ class Facility extends \yii\db\ActiveRecord
     {
         return [
             [['facility_name', 'status'], 'required'],
-            [['status'], 'integer'],
+            [['status', 'location_id'], 'integer'],
             [['facility_name'], 'string', 'max' => 255],
         ];
     }
