@@ -1,53 +1,48 @@
 <?php
 
+use app\models\Employee;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use kartik\date\DatePicker;
+use yii\helpers\Url;
+use yii\grid\ActionColumn;
+use yii\grid\GridView;
+use yii\widgets\Pjax;
 
 /** @var yii\web\View $this */
-/** @var app\models\Employee $model */
-/** @var yii\widgets\ActiveForm $form */
+/** @var app\models\EmployeeSearch $searchModel */
+/** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Employee Form';
+$this->title = 'Employee Dashboard';
 $this->params['breadcrumbs'][] = $this->title;
+
+
 ?>
-<div class="site-index">
+<div class="employee-index">
 
-    <div class="jumbotron">
-        <h1><?= Html::encode($this->title) ?></h1>
-    </div>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php Pjax::begin(); ?>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
 
-    <div class="body-content">
+            'id',
+            'facility_id',
+            'location_id',
+            'no_of_pax',
+            'Date_Time',
+            [
+                'class' => ActionColumn::className(),
+                'urlCreator' => function ($action, Employee $model, $key, $index, $column) {
+                    return Url::toRoute([$action, 'id' => $model->id]);
+                }
+            ],
+        ],
+    ]); ?>
+    <?php Pjax::end(); ?>
+    
+    <p style="text-align: center;">
+        <?= Html::a('Create Employee', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 
-        <div class="employee-form">
-
-            <?php $form = ActiveForm::begin(); ?>
-
-            <?= $form->field($model, 'facility_id')->textInput() ?>
-
-            <?= $form->field($model, 'location_id')->textInput() ?>
-
-            <?= $form->field($model, 'no_of_pax')->textInput(['maxlength' => true]) ?>
-
-            <?= $form->field($model, 'Date_Time')->widget(
-                DatePicker::class, [
-                    'options' => ['placeholder' => 'Enter date..'],
-                    'pluginOptions' => [
-                        'autoclose' => true,
-                        'format' => 'yyyy/mm/dd',
-                    ]
-                ])->label('Date') 
-            ?>
-
-            <?= $form->field($model, 'upadated_at')->textInput() ?>
-
-            <div class="form-group">
-                <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-            </div>
-
-            <?php ActiveForm::end(); ?>
-
-        </div>
-
-    </div>
 </div>
