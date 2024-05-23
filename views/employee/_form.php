@@ -32,6 +32,17 @@ use kartik\select2\Select2;
                     'scrollAfterSelect' => false
                 ]
             ]) ?>
+    
+    <?= $form->field($model, 'facility_id')->widget(Select2::class, [
+    'data' => [],
+    'options' => [
+        'placeholder' => 'Select facility...',
+        'id' => 'facility-id',
+    ],
+    'pluginOptions' => [
+        'allowClear' => true,
+    ],
+    ]) ?>
 
     
         
