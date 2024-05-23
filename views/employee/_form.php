@@ -17,7 +17,7 @@ use kartik\select2\Select2;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'location_id')->widget(Select2::class, [
+    <!-- <?= $form->field($model, 'location_id')->widget(Select2::class, [
                 'data' => ArrayHelper::map(Location::getLocation(), 'id', 'location_name'),
                 // 'theme' => Select2::THEME_DEFAULT,
                 'showToggleAll' => true,
@@ -32,15 +32,31 @@ use kartik\select2\Select2;
                     'scrollAfterSelect' => false
                 ]
             ]) ?>
-    
+     -->
+
+     <?= $form->field($model, 'location_id')->dropDownList(
+        ArrayHelper::map(Location::find()->all(), 'id', 'location_name'), [
+        'prompt'=> 'Select Location',
+        'oncange'=>'
+        .post("index.php?=locations/list&id='.'"+$(this).val(), funtion(data) {
+                $( "select#models-contact").html(data);
+        });'
+            ]); ?>
+
     <?= $form->field($model, 'facility_id')->widget(Select2::class, [
-    'data' => [],
+    'data' => ArrayHelper::map(Facility::getFacility(), 'id', 'facility_name'),
+    // 'theme' => Select2::THEME_DEFAULT,
+    'showToggleAll' => true,
     'options' => [
+        'multiple' => false,
         'placeholder' => 'Select facility...',
         'id' => 'facility-id',
     ],
     'pluginOptions' => [
-        'allowClear' => true,
+        'dropdownAutoWidth' => true,
+        'width' => '100%',
+        'height' => '100%',
+        'scrollAfterSelect' => false
     ],
     ]) ?>
 

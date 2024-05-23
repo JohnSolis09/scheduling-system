@@ -45,7 +45,11 @@ class Facility extends \yii\db\ActiveRecord
         ];
     }
 
-    public function getLocations(){
-        return $this->hasOne(Location::className(), ['id'=> 'location_id']);
+    public static function getFacility() {
+        return self::find()->orderBy(['facility_name'=> SORT_DESC])->all();
     }
+
+    // public function getLocations(){
+    //     return $this->hasOne(Location::className(), ['id'=> 'location_id']);
+    // }
 }
